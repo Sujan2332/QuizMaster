@@ -40,14 +40,18 @@ tbody td {
     border: 1px solid #ddd; /* Light gray border for cells */
     text-align: center; /* Centers text in body cells */
     color: white;
+    transition: 0.3s ease-in-out; /* Smooth hover transition */
+    font-weight: 900;
 }
 tbody tr{
     background: black;
-    color: white;
+    /* color: white; */
+    font-weight: 900;
 }
-tbody tr:hover {
+tbody tr:hover td{
     background:rgb(204, 213, 255) ; /* Highlight row on hover */
     color: black; /* Changes text color on hover */
+    font-weight: 900;
     transition: 0.3s ease-in-out; /* Smooth hover transition */
 }
 
