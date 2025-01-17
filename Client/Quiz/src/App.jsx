@@ -13,25 +13,6 @@ import Navbar from "./components/Navbar";
 import Leaderboards from "./components/Leaderboards";
 import "./App.css"
 
-// Styles
-// Dark
-import "../public/styles/Register.css";
-import "../public/styles/QuizList.css";
-import "../public/styles/QuizDetails.css";
-import "../public/styles/navbar.css";
-import "../public/styles/Leaderboard.css";
-import "../public/styles/DeleteQuiz.css";
-import "../public/styles/CreateQuiz.css";
-
-// Light
-import "../public/styles/CreateQuizLight.css";
-import "../public/styles/RegisterLight.css";
-import "../public/styles/QuizListLight.css";
-import "../public/styles/QuizDetailsLight.css";
-import "../public/styles/navbarLight.css";
-import "../public/styles/DeleteQuizLight.css";
-import "../public/styles/LeaderboardLight.css";
-
 // CustomAlert Component
 export const CustomAlert = ({ message, onClose }) => {
   return (
@@ -67,24 +48,24 @@ const App = () => {
       // Choose the appropriate stylesheets for dark or light theme
       const stylesheets = theme === 'dark'
         ? [
-            "../public/styles/Register.css",
-            "../public/styles/QuizList.css",
-            "../public/styles/QuizDetails.css",
-            "../public/styles/navbar.css",
-            "../public/styles/Leaderboard.css",
-            "../public/styles/DeleteQuiz.css",
-            "../public/styles/CreateQuiz.css",
-            "../public/styles/Home.css"
+            "/styles/Register.css",
+            "/styles/QuizList.css",
+            "/styles/QuizDetails.css",
+            "/styles/navbar.css",
+            "/styles/Leaderboard.css",
+            "/styles/DeleteQuiz.css",
+            "/styles/CreateQuiz.css",
+            "/styles/Home.css"
           ]
         : [
-            "../public/styles/RegisterLight.css",
-            "../public/styles/QuizListLight.css",
-            "../public/styles/QuizDetailsLight.css",
-            "../public/styles/navbarLight.css",
-            "../public/styles/LeaderboardLight.css",
-            "../public/styles/DeleteQuizLight.css",
-            "../public/styles/CreateQuizLight.css",
-            "../public/styles/HomeLight.css"
+            "/styles/RegisterLight.css",
+            "/styles/QuizListLight.css",
+            "/styles/QuizDetailsLight.css",
+            "/styles/navbarLight.css",
+            "/styles/LeaderboardLight.css",
+            "/styles/DeleteQuizLight.css",
+            "/styles/CreateQuizLight.css",
+            "/styles/HomeLight.css"
           ];
       
       // Dynamically load the stylesheets
