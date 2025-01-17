@@ -12,12 +12,11 @@ const UpdateQuiz = () => {
     timeLimit: "",
   });
 
-  // Fetch quizzes on component mount
   useEffect(() => {
     const fetchQuizzes = async () => {
       try {
         const response = await getQuizzes();
-        setQuizzes(response); // Assuming the API response contains an array of quizzes
+        setQuizzes(response);
       } catch (err) {
         alert("Failed to load quizzes");
       }
@@ -26,19 +25,16 @@ const UpdateQuiz = () => {
     fetchQuizzes();
   }, []);
 
-  // Handle input changes for form fields
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle question-related changes
   const handleQuestionChange = (index, field, value) => {
     const updatedQuestions = [...formData.questions];
     updatedQuestions[index][field] = value;
     setFormData({ ...formData, questions: updatedQuestions });
   };
 
-  // Add a new question
   const addQuestion = () => {
     setFormData({
       ...formData,
@@ -49,13 +45,11 @@ const UpdateQuiz = () => {
     });
   };
 
-  // Remove a question
   const removeQuestion = (index) => {
     const updatedQuestions = formData.questions.filter((_, i) => i !== index);
     setFormData({ ...formData, questions: updatedQuestions });
   };
 
-  // Handle quiz selection for updating
   const handleQuizSelect = (quizId) => {
     setSelectedQuizId(quizId);
     const selectedQuiz = quizzes.find((quiz) => quiz._id === quizId);
@@ -69,26 +63,24 @@ const UpdateQuiz = () => {
     }
   };
 
-  // Handle form submission to update quiz
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await updateQuiz(selectedQuizId, formData);
-      alert(response.message); // Display success message in alert
+      alert(`${response.message}`);
     } catch (err) {
-      alert(err.message); // Display error message in alert
+      alert(`Error Updating Quiz: ${err.message}`);
     }
   };
 
   return (
-    <div className='createquiz'>
+    <div className="createquiz">
       <Navbar />
-      <div className='createquizmain'>
-        <h1 style={{ textDecoration: "underline" }}>Update Quiz :</h1>
+      <div className="createquizmain">
+        <h1 style={{ textDecoration: "underline" }}>Update Quiz:</h1>
         {!selectedQuizId && (
           <div className="selection">
-            {/* List of quizzes */}
-            <h3>Select a Quiz to Update :</h3>
+            <h3>Select a Quiz to Update:</h3>
             <ul>
               {quizzes.map((quiz, index) => (
                 <li key={quiz._id}>
@@ -100,9 +92,8 @@ const UpdateQuiz = () => {
           </div>
         )}
 
-        {/* Show form to update selected quiz */}
         {selectedQuizId && (
-          <form onSubmit={handleSubmit} className='createquizform'>
+          <form onSubmit={handleSubmit} className="createquizform">
             <input
               type="text"
               name="title"
@@ -127,7 +118,6 @@ const UpdateQuiz = () => {
               required
             />
 
-            {/* Render questions */}
             {Array.isArray(formData.questions) &&
               formData.questions.length > 0 &&
               formData.questions.map((question, index) => (
@@ -163,14 +153,12 @@ const UpdateQuiz = () => {
                     onChange={(e) => handleQuestionChange(index, "correctAnswer", e.target.value)}
                     required
                   />
-                  {/* Button to remove a question */}
-                  <button type="button" onClick={() => removeQuestion(index)} className="removebtn" >
+                  <button type="button" onClick={() => removeQuestion(index)} className="removebtn">
                     Remove Question
                   </button>
                 </div>
               ))}
             <div className="formbtns">
-              {/* Button to add a new question */}
               <button type="button" onClick={addQuestion}>
                 Add Question
               </button>

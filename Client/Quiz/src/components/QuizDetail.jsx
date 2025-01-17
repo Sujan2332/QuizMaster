@@ -10,16 +10,16 @@ const QuizDetail = () => {
     const [answers, setAnswers] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [timeLeft, setTimeLeft] = useState(0); // State to track remaining time
-    const [timerActive, setTimerActive] = useState(false); // To control the timer state
+    const [timeLeft, setTimeLeft] = useState(0); 
+    const [timerActive, setTimerActive] = useState(false);
 
     useEffect(() => {
         const fetchQuiz = async () => {
             try {
                 const data = await getQuizById(id);
                 setQuiz(data);
-                setTimeLeft(data.timeLimit); // Set time from the quiz data
-                setTimerActive(true); // Start the timer
+                setTimeLeft(data.timeLimit); 
+                setTimerActive(true); 
             } catch (error) {
                 console.error("Error fetching quiz details: ", error);
             }
@@ -30,39 +30,41 @@ const QuizDetail = () => {
     useEffect(() => {
         let timer;
         if (timerActive && timeLeft > 0) {
-            // Start countdown timer only if timer is active and timeLeft is greater than 0
             timer = setInterval(() => {
                 setTimeLeft((prev) => prev - 1);
             }, 1000);
         } else if (timeLeft === 0 && timerActive) {
-            // Submit quiz only when time runs out and timerActive is true
             handleQuizSubmit();
-            setTimerActive(false); // Stop the timer after submitting the quiz
+            setTimerActive(false); 
         }
     
-        return () => clearInterval(timer); // Cleanup timer on unmount
-    }, [timeLeft, timerActive]); // Only depend on timeLeft and timerActive    
+        return () => clearInterval(timer);
+    }, [timeLeft, timerActive]);
 
     const handleAnswerChange = (questionId, answer) => {
         if (!isSubmitted) {
             setAnswers((prev) => ({ ...prev, [questionId]: answer }));
+            alert(`Answer for Question ${currentQuestionIndex + 1} selected: ${answer}`);
         }
     };
 
     const handleQuizSubmit = () => {
         setIsSubmitted(true);
-        setTimerActive(false); // Stop the timer once the quiz is submitted
+        setTimerActive(false); 
+        alert('Quiz submitted successfully!');
     };
 
     const handleNextQuestion = () => {
         if (currentQuestionIndex < quiz.questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
+            alert(`Moved to Question ${currentQuestionIndex + 2}`);
         }
     };
 
     const handlePreviousQuestion = () => {
         if (currentQuestionIndex > 0) {
             setCurrentQuestionIndex(currentQuestionIndex - 1);
+            alert(`Moved to Question ${currentQuestionIndex}`);
         }
     };
 
@@ -76,7 +78,7 @@ const QuizDetail = () => {
             <div className='quizmain'>
             <div className='timer'>
                 <h2>{quiz.title} [<span style={{ fontSize: "20px", fontWeight: "200", textDecoration: "none" }}>{quiz.description}</span>]</h2>
-                    <h3 className='time'>Time Left: {timeLeft}s</h3> {/* Display remaining time */}
+                    <h3 className='time'>Time Left: {timeLeft}s</h3>
                 </div>
                 <div className='quizdetailscontainer'>
                     <h2>Questions:</h2>
@@ -120,7 +122,6 @@ const QuizDetail = () => {
                         )}
                     </div>
                 </div>
-                {/* SubmitQuiz component will handle the submission logic */}
                 <SubmitQuiz quizId={id} answers={answers} onSubmit={handleQuizSubmit} />
             </div>
         </div>

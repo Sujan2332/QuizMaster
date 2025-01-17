@@ -27,8 +27,10 @@ const QuizListWithLeaderboard = ({ showNavbar = true }) => {
         try {
           const data = await getQuizzes();
           setQuizzes(data);
+          alert("Quizzes fetched successfully!"); // Alert on successful quizzes fetch
         } catch (error) {
           console.error('Error Fetching Quizzes: ', error);
+          alert("Error fetching quizzes."); // Alert on error
         }
       };
       fetchQuizzes();
@@ -59,11 +61,11 @@ const QuizListWithLeaderboard = ({ showNavbar = true }) => {
                     style={{
                       background: 'white',
                       color: 'blue',
-                      fontWeight:"800",
+                      fontWeight: "800",
                       border: '2px solid blue',
                       borderRadius: '35px',
                       padding: '5px 10px',
-                      marginTop:"10px",
+                      marginTop: "10px",
                       cursor: 'pointer',
                     }}
                   >
@@ -75,7 +77,7 @@ const QuizListWithLeaderboard = ({ showNavbar = true }) => {
           </>
         ) : (
           <div>
-            <h1 style={{ color: 'red' }}>Oh You Aren't Loggedin yet, Login Now to see the available quiz lists</h1>
+            <h1 style={{ color: 'red' }}>Oh You Aren't Logged in yet, Login Now to see the available quiz lists</h1>
           </div>
         )}
       </div>

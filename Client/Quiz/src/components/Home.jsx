@@ -8,17 +8,16 @@ import { getQuizzes } from '../services/api';
 const Home = () => {
   const [quizzes, setQuizzes] = useState([]);
   const [randomQuiz, setRandomQuiz] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
-  const [user, setUser] = useState(null); // State to store user data
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    // Check login status when the component mounts
     const checkLoginStatus = () => {
-      const storedUser = localStorage.getItem("user"); // Fetch user from localStorage
+      const storedUser = localStorage.getItem("user");
       if (storedUser) {
-        const parsedUser = JSON.parse(storedUser); // Parse user data
+        const parsedUser = JSON.parse(storedUser);
         setUser(parsedUser);
         setIsLoggedIn(true);
       } else {
@@ -28,21 +27,21 @@ const Home = () => {
 
     checkLoginStatus();
 
-    // Fetch quizzes if logged in
     if (isLoggedIn) {
       const fetchQuizzes = async () => {
         try {
           const data = await getQuizzes();
           setQuizzes(data);
+          alert("Quizzes fetched successfully!"); // Added alert for successful quiz fetch
         } catch (error) {
           console.error("Error fetching quizzes:", error);
+          alert("Error fetching quizzes.");
         }
       };
       fetchQuizzes();
     }
   }, [isLoggedIn]);
 
-  // Function to pick a random quiz
   const getRandomQuiz = () => {
     if (quizzes.length > 0) {
       const randomIndex = Math.floor(Math.random() * quizzes.length);
@@ -51,29 +50,28 @@ const Home = () => {
     return null;
   };
 
-  // Handle Quick Start button click
   const handleQuickStart = () => {
     const quiz = getRandomQuiz();
     if (quiz) {
       setRandomQuiz(quiz);
+      alert(`Starting quiz: ${quiz.title}`); // Added alert for starting quiz
       navigate(`/quiz/${quiz._id}`);
+    } else {
+      alert("No quizzes available to start.");
     }
   };
 
   return (
     <div>
-      {/* Conditionally render Navbar based on the route */}
       {location.pathname !== "/quiz" && <Navbar />}
 
       <div className="container">
         <div className="home">
           <div className="welcome-banner">
-            {/* Display user's name if logged in */}
             <h1>Welcome {user ? user.name : "Guest"} to QuizMaster!!!</h1>
             <h3>Test your knowledge and challenge yourself with exciting quizzes!</h3>
           </div>
 
-          {/* Quick Start */}
           <div className="quick-start">
             <h1>Quick Start</h1>
             <button onClick={handleQuickStart} className="btn">
@@ -82,7 +80,6 @@ const Home = () => {
           </div>
 
           <div className="home-sections" style={{ marginBottom: "20px" }}>
-            {/* Quiz Categories */}
             <div className="categories">
               <h1>Explore Categories:</h1>
               {isLoggedIn ? (
@@ -94,7 +91,6 @@ const Home = () => {
               )}
             </div>
 
-            {/* Leaderboard */}
             <div className="leaderboard">
               <h1 style={{ textDecoration: "underline" }}>Leaderboard :</h1>
               {isLoggedIn ? (
@@ -113,7 +109,6 @@ const Home = () => {
               )}
             </div>
 
-            {/* Notifications */}
             <div className="notifications">
               <h2>Announcements</h2>
               <h3>🎉 New quizzes are going to be added soon!!! Stay tuned.</h3>

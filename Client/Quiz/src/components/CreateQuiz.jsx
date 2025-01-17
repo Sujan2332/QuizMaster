@@ -38,7 +38,6 @@ const CreateQuiz = () => {
     const reader = new FileReader();
 
     if (file.type === "application/json") {
-      // Parse JSON file
       reader.onload = (event) => {
         try {
           const data = JSON.parse(event.target.result);
@@ -49,7 +48,6 @@ const CreateQuiz = () => {
       };
       reader.readAsText(file);
     } else if (file.type === "text/csv") {
-      // Parse CSV file using PapaParse
       Papa.parse(file, {
         header: true,
         complete: (results) => {
@@ -63,7 +61,6 @@ const CreateQuiz = () => {
   };
 
   const formatCSVData = (csvData) => {
-    // Convert CSV rows to the required format
     return {
       title: csvData[0]?.title || "",
       description: csvData[0]?.description || "",
@@ -77,7 +74,6 @@ const CreateQuiz = () => {
   };
 
   const validateAndSetData = (data) => {
-    // Validate data format before updating the form state
     if (
       data.title &&
       data.description &&
@@ -101,7 +97,7 @@ const CreateQuiz = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await createQuiz(formData); // Send formData to the backend
+      const response = await createQuiz(formData); 
       alert(response.message);
       setFormData({
         title: "",
@@ -110,7 +106,7 @@ const CreateQuiz = () => {
         timeLimit: "",
       });
     } catch (err) {
-      alert(err.message);
+      alert("Error: " + err.message); 
     }
   };
 

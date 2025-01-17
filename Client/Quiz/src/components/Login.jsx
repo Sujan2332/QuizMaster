@@ -10,17 +10,13 @@ const Login = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Check if the screen size matches mobile view
     const mediaQuery = window.matchMedia('(max-width: 768px)');
     const handleMediaChange = (e) => setIsMobile(e.matches);
 
-    // Set initial state
     setIsMobile(mediaQuery.matches);
 
-    // Listen for changes
     mediaQuery.addEventListener('change', handleMediaChange);
 
-    // Cleanup listener on component unmount
     return () => mediaQuery.removeEventListener('change', handleMediaChange);
   }, []);
 
@@ -29,14 +25,15 @@ const Login = () => {
     try {
       const data = await loginUser({ email, password });
 
-      // Save user details and token to localStorage
       localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user)); // Storing user details
+      localStorage.setItem('user', JSON.stringify(data.user)); 
 
-      // Navigate to a different page after successful login
-      navigate('/home'); // or navigate to the appropriate route based on the role
+      alert('Login successful!');
+      
+      navigate('/home');
     } catch (err) {
       console.error('Error during login: ', err);
+      alert('Login failed. Please check your email or password.');
     }
   };
 
@@ -71,7 +68,6 @@ const Login = () => {
             </h4>
           </form>
         </div>
-        {/* Conditionally render the registerright div */}
         {!isMobile && <div className="registerright"></div>}
       </div>
     </div>

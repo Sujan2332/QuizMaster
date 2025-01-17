@@ -11,6 +11,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
+    alert("You have been logged out successfully."); // Alert on logout
     navigate("/login");
   };
 

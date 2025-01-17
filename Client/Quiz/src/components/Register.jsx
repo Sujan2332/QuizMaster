@@ -30,9 +30,11 @@ const Register = () => {
     e.preventDefault();
     try {
       await registerUser({ name, email, password });
+      alert("Registration successful! Redirecting to login...");
       navigate('/login');
     } catch (error) {
       console.error('Error during Registration: ', error);
+      alert("Registration failed. Please try again.");
     }
   };
 
@@ -77,6 +79,7 @@ const Register = () => {
         {/* Conditionally render the registerright div */}
         {!isMobile && (
           <div className="registerright">
+            {/* Image or content can be added here */}
           </div>
         )}
       </div>

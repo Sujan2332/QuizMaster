@@ -14,6 +14,7 @@ const QuizList = ({ showNavbar = true }) => {  // Add a default prop to show Nav
       const token = localStorage.getItem('token');
       if (token) {
         setIsLoggedIn(true); // User is logged in if the token exists
+        alert("You are logged in! Loading available quizzes...");
       } else {
         setIsLoggedIn(false);
         alert("Oh, you aren't logged in yet. Login now to see the available quiz lists.");
@@ -28,13 +29,15 @@ const QuizList = ({ showNavbar = true }) => {  // Add a default prop to show Nav
         try {
           const data = await getQuizzes();
           setQuizzes(data);
+          alert("Quizzes loaded successfully!");
         } catch (error) {
           console.error('Error Fetching Quizzes: ', error);
+          alert("Failed to load quizzes. Please try again later.");
         }
       };
       fetchQuizzes();
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, navigate]);
 
   return (
     <div className="quizList">
@@ -58,7 +61,7 @@ const QuizList = ({ showNavbar = true }) => {  // Add a default prop to show Nav
           </>
         ) : (
           <div>
-            <h1 style={{ color: 'red' }}>Oh You Aren't Loggedin yet, Login Now to see the available quiz lists</h1>
+            <h1 style={{ color: 'red' }}>Oh You Aren't Logged in yet, Login Now to see the available quiz lists</h1>
           </div>
         )}
       </div>

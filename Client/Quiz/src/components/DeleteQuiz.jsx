@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { deleteQuiz, getQuizzes } from "../services/api"; // Assuming `getQuizzes` fetches the list of quizzes
+import { deleteQuiz, getQuizzes } from "../services/api";
 import Navbar from "./Navbar";
 
 const DeleteQuiz = () => {
   const [quizzes, setQuizzes] = useState([]);
 
-  // Fetch quizzes on component mount
   useEffect(() => {
     const fetchQuizzes = async () => {
       try {
         const response = await getQuizzes();
-        setQuizzes(response); // Assuming response contains a list of quizzes
+        setQuizzes(response);
       } catch (err) {
-        alert("Error fetching quizzes."); // Display error in alert box
+        alert("Error fetching quizzes.");
       }
     };
     fetchQuizzes();
@@ -20,13 +19,11 @@ const DeleteQuiz = () => {
 
   const handleDelete = async (quizId) => {
     try {
-      const response = await deleteQuiz(quizId); // Pass the quizId to delete
-      alert(response.message); // Show success message in an alert box
-      
-      // Remove the deleted quiz from the list without re-fetching all quizzes
+      const response = await deleteQuiz(quizId);
+      alert(response.message);
       setQuizzes((prevQuizzes) => prevQuizzes.filter((quiz) => quiz._id !== quizId));
     } catch (err) {
-      alert(err.message); // Show error message in an alert box
+      alert(err.message);
     }
   };
 
@@ -34,7 +31,7 @@ const DeleteQuiz = () => {
     <div className="delete">
       <Navbar />
       <div className="deletemain">
-        <h1 style={{textDecoration:'underline'}}>Delete Quiz :</h1>
+        <h1 style={{ textDecoration: 'underline' }}>Delete Quiz :</h1>
 
         <ul className="deleteul">
           {quizzes.map((quiz, index) => (
