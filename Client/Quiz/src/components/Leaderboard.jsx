@@ -8,7 +8,7 @@ const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  console.log(leaderboard)
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
