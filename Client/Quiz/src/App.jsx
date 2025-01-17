@@ -28,7 +28,7 @@ import "../public/styles/CreateQuizLight.css";
 import "../public/styles/RegisterLight.css";
 import "../public/styles/QuizListLight.css";
 import "../public/styles/QuizDetailsLight.css";
-import "../public/styles/navbarlight.css";
+import "../public/styles/navbarLight.css";
 import "../public/styles/DeleteQuizLight.css";
 import "../public/styles/LeaderboardLight.css";
 
