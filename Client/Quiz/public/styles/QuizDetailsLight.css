@@ -162,3 +162,14 @@
     background: blue; /* Light background */
     color: white; /* Text color */
 }
+
+@media (max-width: 768px) {
+    .time{
+        text-align: center;
+    }
+    .timer{
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
