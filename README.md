@@ -1,14 +1,8 @@
 # *Quiz Master Web Application*
 ## *Welcome to the Quiz Web App! A dynamic and interactive platform that allows users to take quizzes on various topics, track their performance, and view their rankings. With features for both regular users and admins, this app is designed to make quiz-taking fun and efficient!*
 
-## *Table of Contents*
-### *Description*
-### *Core Features*
-### *Tech Stack*
-### *Installation*
-### *Usage*
-### *Contributing*
-### *License*
+## *Preview*
+## *[Click Here to take up the Quiz!!!](https://quizmaster-oji8.onrender.com/)*
 
 ## *Description*
 ### *This web-based application allows users to take quizzes on a variety of topics in a smooth and interactive environment. The app includes features for quiz-taking, tracking scores, reviewing answers, and providing detailed analytics. Admins can manage quizzes, update questions, and view performance statistics through the admin portal.*
@@ -67,11 +61,20 @@
 
 ## *Tech Stack*
 
-### *Frontend: React.js (for building dynamic user interfaces)*
-### *Backend: Node.js with Express.js (for handling server-side logic)*
-### *Database: MongoDB (for storing quiz data, user information, and quiz results)*
-### *Authentication: JWT (for secure user authentication)*
-### *Hosting: Render (for deploying the web app)*
+### *Frontend:*
+*React.js (for building dynamic user interfaces)*
+
+### *Backend:* 
+*Node.js with Express.js (for handling server-side logic)*
+
+### *Database:* 
+*MongoDB (for storing quiz data, user information, and quiz results)*
+
+### *Authentication:* 
+*JWT (for secure user authentication)*
+
+### *Hosting:* 
+*Render (for deploying the web app)*
 
 ## *Installation*
 
@@ -120,24 +123,35 @@ npm start
 
 ## *Usage*
 
-### *Sign Up: Create a new user account or log in if you already have one.*
+### *Sign Up:* 
+*Create a new user account or log in if you already have one.*
 
-### *Choose a Quiz: Browse available quizzes by category.*
+### *Choose a Quiz:* 
+*Browse available quizzes by category.*
 
-### *Take a Quiz: Start the quiz and answer questions one by one.*
+### *Take a Quiz:* 
+*Start the quiz and answer questions one by one.*
 
-### *View Results: After completing the quiz, see your score and review answers.*
+### *View Results:* 
+*After completing the quiz, see your score and review answers.*
 
-### *Admin Actions: Admins can log in to manage quizzes, upload questions, and view leaderboards.*
+### *Admin Actions:* 
+*Admins can log in to manage quizzes, upload questions, and view leaderboards.*
 
 ## *Contributing*
 ### *I welcome contributions! If you’d like to contribute, please follow these steps:*
 
 ## *Fork the repository.*
 
-### *Create your feature branch (git checkout -b feature-branch).*
-### *Commit your changes (git commit -am 'Add feature').*
-### *Push to the branch (git push origin feature-branch).*
+### *Create your feature branch* 
+*(git checkout -b feature-branch).*
+
+### *Commit your changes* 
+*(git commit -am 'Add feature').*
+
+### *Push to the branch* 
+*(git push origin feature-branch).*
+
 ### *Open a Pull Request.*
 
 ## *License*
