@@ -80,7 +80,7 @@ const App = () => {
             "../public/styles/RegisterLight.css",
             "../public/styles/QuizListLight.css",
             "../public/styles/QuizDetailsLight.css",
-            "../public/styles/navbarlight.css",
+            "../public/styles/navbarLight.css",
             "../public/styles/LeaderboardLight.css",
             "../public/styles/DeleteQuizLight.css",
             "../public/styles/CreateQuizLight.css",
