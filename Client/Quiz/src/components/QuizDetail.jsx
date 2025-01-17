@@ -12,6 +12,7 @@ const QuizDetail = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [timeLeft, setTimeLeft] = useState(0); 
     const [timerActive, setTimerActive] = useState(false);
+    const [loading, setLoading] = useState(true); // Track loading state
 
     useEffect(() => {
         const fetchQuiz = async () => {
@@ -20,8 +21,10 @@ const QuizDetail = () => {
                 setQuiz(data);
                 setTimeLeft(data.timeLimit); 
                 setTimerActive(true); 
+                setLoading(false); // Set loading to false once data is fetched
             } catch (error) {
                 console.error("Error fetching quiz details: ", error);
+                setLoading(false); // Stop loading on error
             }
         };
         fetchQuiz();
@@ -68,7 +71,17 @@ const QuizDetail = () => {
         }
     };
 
-    if (!quiz) return <div>Loading...</div>;
+    // Loading spinner component
+    if (loading) {
+        return (
+            <div className="spinner">
+                <div className="loading-spinner"></div>
+                Loading...
+            </div>
+        );
+    }
+
+    if (!quiz) return <div>Quiz not found</div>;
 
     const question = quiz.questions[currentQuestionIndex];
 

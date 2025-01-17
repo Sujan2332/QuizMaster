@@ -5,17 +5,21 @@ import { useNavigate } from 'react-router-dom';
 const SubmitQuiz = ({ quizId, answers, onSubmit }) => {
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(null);
+  const [loading, setLoading] = useState(false); // Add loading state
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
     const token = localStorage.getItem('token');
+    setLoading(true); // Set loading to true when submission starts
     try {
       onSubmit(); 
       const data = await submitQuiz(quizId, answers, token);
+      setLoading(false); // Set loading to false when submission is successful
       alert(`Quiz Submitted! Your Score: ${data.score}`);
       setScore(data.score);
       setSubmitted(true);
     } catch (error) {
+      setLoading(false); // Set loading to false if there’s an error
       console.error('Error Submitting Quiz: ', error);
       alert('There was an error submitting the quiz. Please try again.');
     }
@@ -36,7 +40,19 @@ const SubmitQuiz = ({ quizId, answers, onSubmit }) => {
   return (
     <div className="submit">
       {!submitted ? (
-        <button onClick={handleSubmit} className="submitbtn">Submit Quiz</button>
+        <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"space-evenly"}}>
+          <button onClick={handleSubmit} className="submitbtn" disabled={loading}>
+            Submit Quiz
+          </button>
+          {/* <br /> */}
+          {/* Show loading spinner if loading is true */}
+          {loading && (
+            <div className="spinner">
+              <div className="loading-spinner"></div>
+              <p>Submitting your quiz, please wait...</p>
+            </div>
+          )}
+        </div>
       ) : (
         <div className="submitmain">
           <p>Quiz Submitted! Your Score: {score}</p>

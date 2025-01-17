@@ -8,6 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isMobile, setIsMobile] = useState(false);
+  const [loading, setLoading] = useState(false); // New loading state
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)');
@@ -22,9 +23,11 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true before making the API request
+
     try {
       const data = await loginUser({ email, password });
-
+      
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user)); 
 
@@ -34,6 +37,8 @@ const Login = () => {
     } catch (err) {
       console.error('Error during login: ', err);
       alert('Login failed. Please check your email or password.');
+    } finally {
+      setLoading(false); // Set loading to false after request is completed
     }
   };
 
@@ -58,7 +63,12 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button type="submit">Login</button>
+            <button type="submit" disabled={loading}>Login</button>
+            {loading && 
+            <div className="spinner">
+            <div className="loading-spinner"></div>
+          </div>
+            } {/* Spinner shown when loading */}
             <h4
               type="submit"
               onClick={() => navigate('/register')}

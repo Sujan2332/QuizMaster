@@ -11,6 +11,8 @@ const CreateQuiz = () => {
     timeLimit: "",
   });
 
+  const [loading, setLoading] = useState(false); // New state for loading
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -96,6 +98,7 @@ const CreateQuiz = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true
     try {
       const response = await createQuiz(formData); 
       alert(response.message);
@@ -107,6 +110,8 @@ const CreateQuiz = () => {
       });
     } catch (err) {
       alert("Error: " + err.message); 
+    } finally {
+      setLoading(false); // Set loading to false after completion
     }
   };
 
@@ -114,6 +119,9 @@ const CreateQuiz = () => {
     <div className="createquiz">
       <Navbar />
       <div className="createquizmain">
+        {loading &&  <div className="spinner">
+            <div className="loading-spinner"></div>
+          </div>}
         <form onSubmit={handleSubmit} className="createquizform">
           <h1 style={{ textDecoration: "underline" }}>Create Quiz :</h1>
           <input
@@ -188,7 +196,9 @@ const CreateQuiz = () => {
             <button type="button" onClick={addQuestion}>
               Add Question
             </button>
-            <button type="submit">Create Quiz</button>
+            <button type="submit" disabled={loading}> {/* Disable button when loading */}
+              {loading ? "Submitting..." : "Create Quiz"}
+            </button>
           </div>
         </form>
       </div>

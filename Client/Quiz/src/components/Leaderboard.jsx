@@ -8,12 +8,12 @@ const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log(leaderboard)
+
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
         const data = await getLeaderboard(quizId);
-        setLeaderboard(data.leaderboard); 
+        setLeaderboard(data.leaderboard);
         alert("Leaderboard fetched successfully!"); // Alert on successful leaderboard fetch
       } catch (error) {
         setError(error.message || 'Failed to fetch leaderboard');
@@ -25,9 +25,6 @@ const Leaderboard = () => {
     fetchLeaderboard();
   }, [quizId]);
 
-  if (loading) {
-    return <div>Loading Leaderboard...</div>;
-  }
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -37,7 +34,14 @@ const Leaderboard = () => {
     <div className='leaderboard1'>
       <Navbar />
       <div className='leaderboardmain'>
+        {}
         <h2 style={{ textDecoration: "underline" }}>Leaderboard : </h2>
+        {loading && (
+          <div className="spinner">
+          <div className="loading-spinner"></div>
+          <p>Loading Leaderboard...</p>
+        </div>
+        )}
         {leaderboard.length > 0 ? (
           <table>
             <thead>
@@ -51,14 +55,14 @@ const Leaderboard = () => {
               {leaderboard.map((entry, index) => (
                 <tr key={entry._id}>
                   <td>{index + 1}</td>
-                  <td>{entry.userId.name}</td> 
+                  <td>{entry.userId.name}</td>
                   <td>{entry.score}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         ) : (
-          <p>No Leaderboard data available yet.</p>
+          <p style={{textAlign:"center"}}>No Leaderboard data available yet.</p>
         )}
       </div>
     </div>

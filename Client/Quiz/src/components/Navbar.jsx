@@ -7,12 +7,17 @@ const Navbar = () => {
   const isAdmin = user?.isAdmin;
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Track sidebar state
+  const [isLoading, setIsLoading] = useState(false); // Track loading state
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
-    alert("You have been logged out successfully."); // Alert on logout
-    navigate("/login");
+    setIsLoading(true); // Show spinner when logout starts
+    setTimeout(() => {
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+      setIsLoading(false); // Hide spinner after logout
+      alert("You have been logged out successfully.");
+      navigate("/login");
+    }, 1000); // Simulating a short delay for logout
   };
 
   const toggleSidebar = () => {
@@ -40,7 +45,7 @@ const Navbar = () => {
           />
           QuizMaster
         </h1>
-        
+
         {/* Sidebar for Mobile View */}
         <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
           <button className="sidebar-toggle" onClick={toggleSidebar}>
@@ -59,7 +64,7 @@ const Navbar = () => {
             </li>
             {user ? (
               <li>
-                <Link onClick={handleLogout} to="/login">
+                <Link onClick={handleLogout} to="#">
                   <i className="fa-solid fa-right-from-bracket"></i> Logout
                 </Link>
               </li>
@@ -116,7 +121,7 @@ const Navbar = () => {
           </li>
           {user ? (
             <li>
-              <Link onClick={handleLogout} to="/login">
+              <Link onClick={handleLogout} to="#">
                 <i className="fa-solid fa-right-from-bracket"></i> Logout
               </Link>
             </li>

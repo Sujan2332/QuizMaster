@@ -11,14 +11,18 @@ const UpdateQuiz = () => {
     questions: [{ questionText: "", options: ["", "", "", ""], correctAnswer: "" }],
     timeLimit: "",
   });
+  const [loading, setLoading] = useState(false); // Loading state
 
   useEffect(() => {
     const fetchQuizzes = async () => {
+      setLoading(true); // Start loading
       try {
         const response = await getQuizzes();
         setQuizzes(response);
       } catch (err) {
         alert("Failed to load quizzes");
+      } finally {
+        setLoading(false); // Stop loading after fetch is done
       }
     };
 
@@ -65,11 +69,14 @@ const UpdateQuiz = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading while submitting the quiz
     try {
       const response = await updateQuiz(selectedQuizId, formData);
       alert(`${response.message}`);
     } catch (err) {
       alert(`Error Updating Quiz: ${err.message}`);
+    } finally {
+      setLoading(false); // Stop loading after submission is done
     }
   };
 
@@ -78,7 +85,13 @@ const UpdateQuiz = () => {
       <Navbar />
       <div className="createquizmain">
         <h1 style={{ textDecoration: "underline" }}>Update Quiz:</h1>
-        {!selectedQuizId && (
+        {loading && (
+          <div className="spinner">
+            <div className="loading-spinner"></div>
+          </div>
+        )}
+
+        {!selectedQuizId && !loading && (
           <div className="selection">
             <h3>Select a Quiz to Update:</h3>
             <ul>
@@ -92,7 +105,7 @@ const UpdateQuiz = () => {
           </div>
         )}
 
-        {selectedQuizId && (
+        {selectedQuizId && !loading && (
           <form onSubmit={handleSubmit} className="createquizform">
             <input
               type="text"

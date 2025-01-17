@@ -10,6 +10,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isMobile, setIsMobile] = useState(false);
+  const [loading, setLoading] = useState(false); // Add loading state
 
   useEffect(() => {
     // Check if the screen size matches mobile view
@@ -28,11 +29,14 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true when registration starts
     try {
       await registerUser({ name, email, password });
+      setLoading(false); // Set loading to false when registration is successful
       alert("Registration successful! Redirecting to login...");
       navigate('/login');
     } catch (error) {
+      setLoading(false); // Set loading to false if there’s an error
       console.error('Error during Registration: ', error);
       alert("Registration failed. Please try again.");
     }
@@ -66,13 +70,19 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button type="submit">Register</button>
+            <button type="submit" disabled={loading}>Register</button>
+                  {/* Show loading spinner if the loading state is true */}
+      {loading && (
+        <div className="spinner">
+          <div className="loading-spinner"></div>
+          <h6>Registering, please wait...</h6>
+        </div>
+      )}
             <h4
-              type="submit"
               onClick={() => navigate('/login')}
               className="navreg"
             >
-              Already User? Login
+              Already a User? Login
             </h4>
           </form>
         </div>
@@ -83,6 +93,7 @@ const Register = () => {
           </div>
         )}
       </div>
+
     </div>
   );
 };
