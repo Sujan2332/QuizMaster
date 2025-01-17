@@ -11,9 +11,9 @@ const QuizSchema = new mongoose.Schema({
     title:{type:String,required:true},
     description:{type:String,required:true},
     questions:[QuestionSchema],
-    leaderboard:[{userId:{type:mongoose.Schema.Types.ObjectId,ref:"User"},score:{type:Number,min:0}}],
+    leaderboard:[{userId:{type:mongoose.Schema.Types.ObjectId,ref:"quizusers"},score:{type:Number,min:0}}],
     timeLimit:{type:Number,required:true},
-    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // Optional: Creator's user ID
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "quizusers" }, // Optional: Creator's user ID
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default:Date.now}
 })
