@@ -15,7 +15,7 @@ const QuizList = ({ showNavbar = true }) => {
       const token = localStorage.getItem('token');
       if (token) {
         setIsLoggedIn(true);
-        alert("You are logged in! Loading available quizzes...");
+        alert("Loading available quizzes...");
       } else {
         setIsLoggedIn(false);
         alert("Oh, you aren't logged in yet. Login now to see the available quiz lists.");
