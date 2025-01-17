@@ -1,0 +1,60 @@
+.delete {
+    /* border: 2px solid red; */
+    color: black; /* Adjusted text color for light theme */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* align-items: center; */
+}
+
+.deletemain {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 20px;
+}
+.deleteul{
+    gap: 20px;
+    /* border:2px solid red; */
+    display: flex;
+    flex-direction: column;
+}
+
+.deleteul button {
+    border: 2px solid blue; /* Light orange border for a clean look */
+    border-radius: 15px;
+    padding: 2px 10px;
+    font-weight: 900;
+    font-size: 15px;
+    background: blue; /* Light background for the button */
+    color: white; /* Light orange text color */
+    transition: 0.3s ease-in-out;
+}
+
+.deleteul button:hover {
+    color: white; /* Text color changes to white on hover */
+    border: 2px solid white; /* White border for contrast */
+    background: red; /* Light orange hover background */
+}
+
+.deleteul li {
+    /* border: 2px solid red; */
+    min-width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: black; /* Adjusted text color for readability in light theme */
+    transition: 0.3s ease-in-out;
+}
+.deleteul li:hover{
+    background: rgba(155, 198, 255, 0.636);
+    padding: 10px 20px;
+    border-radius: 50px;
+    min-width: 400px;
+    transform: scale(1.05);
+}

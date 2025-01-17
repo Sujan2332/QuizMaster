@@ -1,0 +1,105 @@
+
+.app{
+  position: relative;
+}
+/* Common theme styles */
+.dark-theme,
+.light-theme {
+  padding: 20px;
+  border-radius: 10px;
+  width: auto;
+  position: fixed;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1000;
+  bottom: 30px; /* Default for larger screens (desktop) */
+  right: 30px; /* Default for larger screens (desktop) */
+
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+  /* position: fixed; */
+  border: 2px solid red;
+  padding: 10px 20px;
+  font-size: 25px;
+  /* background-color: #333; */
+  background: none;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1000;
+  bottom: 30px; /* Default for larger screens (desktop) */
+  right: 30px; /* Default for larger screens (desktop) */
+}
+
+
+/* Button hover effect */
+.theme-toggle-btn:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  /* background-color: #555; Lighter dark background */
+}
+
+.fa-sun{
+  background: blue;
+  color:white;
+  border-radius: 50%;
+  bottom: 10px;
+  right: 10px;
+  padding: 20px;
+  transition: 0.3s ease-in-out;
+}
+.fa-sun:hover{
+  background: black;
+  border: 1px solid grey;
+  color: white;
+}
+.fa-moon{
+  padding: 20px 23px;
+  border-radius: 50%;
+  bottom: 10px;
+  right: 10px;
+  background: black;
+  border: 2px solid white;
+}
+.fa-moon:hover{
+  background: white;
+  border: 1px solid grey;
+  color: blue;
+}
+
+/* For mobile devices (smaller screens) */
+@media (max-width: 768px) {
+  .theme-toggle-btn {
+    top: 13px;  /* Adjust as needed for mobile */
+    border: none; /* Optionally remove border for a cleaner mobile look */
+    padding: 0px;
+    width: 50px;
+    height: 50px;
+    left: 630px; /* Adjust as needed for mobile */
+  }
+  .fa-sun,.fa-moon{
+    font-size: 25px;
+    padding: 10px;
+  }
+  .fa-moon{
+    padding: 10px 14px;
+  }
+}
+
+/* For even smaller screens (portrait phones) */
+@media (max-width: 480px) {
+  .theme-toggle-btn {
+    top: 10px;  /* Adjust positioning */
+    right: 10px; /* Adjust positioning */
+    padding: 8px 15px; /* Reduce padding for small screens */
+  }
+}
+
+.theme-toggle-btn:hover{
+  border: none;
+  background: none;
+  color: none;
+}

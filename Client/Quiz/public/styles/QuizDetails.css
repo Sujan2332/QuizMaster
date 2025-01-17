@@ -1,0 +1,146 @@
+.quizdetails{
+    color: white;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.quizmain{
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 20px;
+}
+.quizmain h2{
+    text-decoration: underline;
+}
+.quizdetailscontainer{
+    /* border: 2px solid red; */
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    gap: 20px;
+}
+.quizdetailscontainer ul{
+    list-style: none;
+}
+.quizdetailscontainer .mainul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+.subul{
+    padding: 20px;
+}
+.subul li{
+    font-size: 18px;
+    font-weight: 500;
+}
+.submit{
+    /* border: 2px solid red; */
+    border: 1px solid white;
+    padding: 0px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 15px;
+    background: rgb(34, 0, 128);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+.options{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-evenly; */
+}
+.aftersubmit{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+}
+
+.aftersubmit button{
+    border-radius: 12px;
+    padding: 5px 10px;
+    color: rgb(34, 0, 128);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.submitbtn{
+    border: 2px solid white;
+    padding: 0px 10px;
+    border-radius:13px;
+    background: white;
+    color: rgb(34, 0, 128);
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+}
+.submitbtn:hover{
+    transform: scale(1.05);
+    color: white;
+    background: rgb(34, 0, 128);
+    border: 2px solid whute;
+}
+.submitmain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+.navigation-buttons{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.navigation-buttons button{
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+}
+.navigation-buttons button:hover{
+    background: rgb(34, 0, 128);
+    color: white;
+    border: 2px solid white;
+}
+.timer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.time{
+    border: 2px solid red;
+    padding: 5px 10px;
+    border-radius: 35px;
+    background: white;
+    color: red;
+}
+@media (max-width: 768px) {
+    .time{
+        text-align: center;
+    }
+}

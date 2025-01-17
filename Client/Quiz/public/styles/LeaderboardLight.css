@@ -1,0 +1,57 @@
+.leaderboard1 {
+    color: black; /* Adjust text color for light theme */
+    display: flex;
+    flex-direction: column;
+}
+
+.leaderboardmain {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 30px;
+    gap: 20px;
+}
+
+.leaderboardmain table {
+    width: 100%; /* Ensures table takes full width */
+    border-collapse: collapse; /* Combines cell borders */
+    margin: 20px 0; /* Optional: Adds spacing around the table */
+    background: white; /* Ensures table background matches light theme */
+    border: 1px solid #ccc; /* Light border around the table */
+}
+
+thead {
+    background: blue; /* Light orange header background */
+    color: white; /* Header text color for contrast */
+}
+
+thead th {
+    padding: 10px; /* Padding inside header cells */
+    border: 2px solid white; /* Header cell border */
+    text-align: center; /* Centers text in header cells */
+}
+
+tbody {
+    background: white; /* Default background for rows */
+}
+
+tbody td {
+    padding: 10px; /* Padding inside body cells */
+    border: 1px solid #ddd; /* Light gray border for cells */
+    text-align: center; /* Centers text in body cells */
+    color: black; /* Text color for better readability */
+}
+
+tbody tr {
+    background: #f9f9f9; /* Light gray row background */
+}
+
+tbody tr:hover {
+    background: #d6dcff; /* Light orange highlight row on hover */
+    color: black; /* Retain text color on hover */
+    transition: 0.3s ease-in-out; /* Smooth hover transition */
+}
+
+tr {
+    border-bottom: 1px solid #ddd; /* Adds borders between rows */
+}

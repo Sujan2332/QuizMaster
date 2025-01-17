@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+}
+body{
+    background: black;
+    /* background-image: url("../assets/quiz.gif"); */
+    /* background-repeat: no-repeat; Prevent the image from repeating */
+  /* background-size: cover; Make the image cover the entire width and height */
+  background-position: center; /* Center the image */
+  height: 100vh;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;  
+  /* border: 2px solid red; */
+  padding: 20px;
+  padding: 20px 40px;
+  background: linear-gradient(285deg, black,rgb(36, 36, 36));
+  color: white;
+}
+nav h1{
+    font-size: 35px;
+}
+nav ul{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+nav li{
+    list-style: none;
+}
+nav ul li a{
+    text-decoration: underline;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    transition: 0.3s ease-in-out;
+
+}
+nav ul li a:hover{
+    color: rgb(34, 0, 128);
+    border: 2px solid rgb(34, 0, 128);
+    background: white;
+    background: #d6dcff;
+    border-radius: 30px;
+    padding: 10px 15px;
+}
+.imagecontainer{
+    /* border: 2px solid red; */
+}
+i{
+    padding-right: 10px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 30px;
+    background-image: url("../assets/5zWt.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+.home-sections{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* * Sidebar */
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: black;
+    transition: all 0.3s ease-in-out;
+    z-index: 100;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    /* border: 2px solid red; */
+    padding: 0;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+    background: #d6dcff;
+    color: rgb(34, 0, 128);
+}
+
+/* Button to open sidebar (hamburger icon) */
+.sidebar-toggle {
+    /* border: 2px solid red; */
+    position: fixed; /* Keep it visible */
+    top: 27px; /* Adjust as per your design */
+    left: 10px; /* Adjust as per your design */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #fff; /* White color for better visibility on the sidebar */
+    cursor: pointer;
+    z-index: 200; /* Ensure it appears above the sidebar */
+}
+
+.sidebar-toggle{
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+/* Hide desktop navigation and show sidebar on mobile */
+.desktop-nav {
+    display: none;
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+}
+
+/* For larger screens, show the default horizontal nav */
+@media (min-width: 769px) {
+    .sidebar {
+        display: none;
+    }
+
+    .desktop-nav {
+        display: flex;
+        justify-content: space-around;
+    }
+}

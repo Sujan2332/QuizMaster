@@ -1,0 +1,56 @@
+.leaderboard1{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+}
+.leaderboardmain{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    /* border: 2px solid green; */
+    padding: 30px;
+    gap: 20px;
+}
+
+.leaderboardmain table {
+    width: 100%; /* Ensures table takes full width */
+    border-collapse: collapse; /* Combines cell borders */
+    margin: 20px 0; /* Optional: Adds spacing around the table */
+}
+
+thead {
+    background: rgb(34, 0, 128); /* Header background color */
+    color: white; /* Header text color */
+}
+
+thead th {
+    padding: 10px; /* Padding inside header cells */
+    border: 2px solid white; /* Header cell border */
+    text-align: center; /* Centers text in header cells */
+}
+
+tbody {
+    background: white; /* Default background for rows */
+}
+
+tbody td {
+    padding: 10px; /* Padding inside body cells */
+    border: 1px solid #ddd; /* Light gray border for cells */
+    text-align: center; /* Centers text in body cells */
+    color: white;
+}
+tbody tr{
+    background: black;
+    color: white;
+}
+tbody tr:hover {
+    background:rgb(204, 213, 255) ; /* Highlight row on hover */
+    color: black; /* Changes text color on hover */
+    transition: 0.3s ease-in-out; /* Smooth hover transition */
+}
+
+tr {
+    border-bottom: 1px solid #ddd; /* Adds borders between rows */
+}

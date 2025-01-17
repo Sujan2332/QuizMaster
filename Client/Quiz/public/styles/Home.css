@@ -1,0 +1,92 @@
+.home{
+    color: white;
+}
+.quick-start{
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 40px;
+    background: rgba(0, 0, 0, 0.77);
+}
+
+.quick-start .btn{
+    border: 2px solid white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 900;
+    background: rgb(34, 0, 128);
+    color: white;
+}
+.quick-start .btn:hover{
+    border: 2px solid rgb(34, 0, 128);
+    background: #d6dcff ;
+    color: rgb(34, 0, 128);
+}
+
+.home-sections{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+}
+.home-sections .categories{
+    border: 2px solid white;
+    padding: 30px;
+    border-radius: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.77)
+}
+.home-sections .leaderboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.77);
+    border: 2px solid white;
+    border-radius: 35px;
+    padding: 10px;
+    gap: 10px;
+}
+.home-sections .notifications{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.77);
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 10px;
+}
+.home-sections a{
+    /* color: rgb(34, 0, 128); */
+}
+.categories button,.leaderboard button{
+    border: 2px solid white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 900;
+    background: rgb(34, 0, 128);
+    color: white;
+}
+
+.categories button:hover,.leaderboard button:hover{
+    border: 2px solid rgb(34, 0, 128);
+    background: #d6dcff ;
+    color: rgb(34, 0, 128);
+}
+
+.home-sections button:hover a{
+    color: rgb(34, 0, 128);
+
+}

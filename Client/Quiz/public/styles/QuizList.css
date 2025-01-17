@@ -1,0 +1,55 @@
+.quizList{
+    /* border: 2px solid red; */
+    color: white;
+}
+.quizlistcontainer{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 30px;
+}
+.quizlistcontainer li,a{
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+.quizlistcontainer a{
+    /* font-size: 20px; */
+    font-weight: 500;
+}
+.quizlistcontainer h2{
+    text-decoration: underline;
+}
+.quizlistcontainer li{
+    /* border: 2px solid red; */
+    width: 300px;
+    text-align: center;
+    gap: 5pxpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #1e1e1e; /* Slightly lighter background for the container */
+    background: rgb(34, 0, 128);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+    transition: 0.3s ease-in-out;
+}
+.quizlistcontainer li:hover{
+    background: #1e1e1e;
+    color:white;
+}
+.quizlistcontainer ul{
+    /* border: 2px solid red; */
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 40px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}

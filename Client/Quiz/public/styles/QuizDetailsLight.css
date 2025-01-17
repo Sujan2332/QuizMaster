@@ -1,0 +1,164 @@
+.quizdetails {
+    color: black; /* Changed text color to black for light theme */
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quizmain {
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 20px;
+}
+
+.quizmain h2 {
+    text-decoration: underline;
+}
+
+.quizdetailscontainer {
+    /* border: 2px solid red; */
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.quizdetailscontainer ul {
+    list-style: none;
+}
+
+.quizdetailscontainer .mainul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.subul {
+    padding: 20px;
+}
+
+.subul li {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.submit {
+    /* border: 2px solid red; */
+    border: 1px solid black; /* Changed border color to black */
+    padding: 0px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 15px;
+    background: blue; /* Light background */
+    color: black; /* Changed text color to black */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.options {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-evenly; */
+}
+
+.aftersubmit {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+}
+
+.aftersubmit button {
+    border-radius: 12px;
+    padding: 5px 10px;
+    color: black; /* Changed button text color to black */
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #f0f0f0; /* Light background for buttons */
+    border: 1px solid #d0d0d0; /* Subtle border */
+}
+
+.submitbtn {
+    border: 2px solid black; /* Changed border to black */
+    padding: 0px 10px;
+    border-radius: 13px;
+    background: white;
+    color: blue; /* Maintained primary color for text */
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+}
+
+.submitbtn:hover {
+    transform: scale(1.05);
+    color: white;
+    background: blue; /* Primary color for hover */
+    border: 2px solid white;
+}
+
+.submitmain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.navigation-buttons {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navigation-buttons button {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    background: #f0f0f0; /* Light button background */
+    color: black; /* Button text color */
+    border: 2px solid blue;
+}
+
+.navigation-buttons button:hover {
+    background: blue; /* Primary hover background */
+    color: white;
+    border: 2px solid white;
+}
+
+.timer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.time {
+    border: 2px solid black; /* Changed border to black */
+    padding: 5px 10px;
+    border-radius: 35px;
+    background: blue; /* Light background */
+    color: white; /* Text color */
+}

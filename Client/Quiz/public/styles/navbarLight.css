@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+}
+body {
+    background: white;
+    /* background-image: url("../assets/quiz-light.gif"); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    background-position: center;
+    height: 100vh;
+    color: black; /* Adjust text color for readability */
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: linear-gradient(285deg, white, rgb(245, 245, 245));
+    color: black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add a light shadow for better visibility */
+}
+nav h1 {
+    font-size: 35px;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+nav li {
+    list-style: none;
+}
+nav ul li a {
+    text-decoration: underline;
+    color: black;
+    font-size: 18px;
+    font-weight: 800;
+    transition: 0.3s ease-in-out;
+}
+nav ul li a:hover {
+    color:  black; /* Orange hover effect for visibility */
+    border: 2px solid blue;
+    background: rgb(204, 213, 255);
+    border-radius: 30px;
+    padding: 10px 15px;
+}
+.imagecontainer {
+    /* border: 2px solid red; */
+}
+i {
+    padding-right: 10px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 30px;
+    background-image: url("../assets/white\ \(5\).gif"); /* Use a lighter gif or background */
+    background: linear-gradient(-285deg, #ffffff, #e6e6e6); /* Subtle gradient */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    color: black;
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+.home-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+/* * Sidebar */
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(0, 0, 255, 0.792);
+    transition: all 0.3s ease-in-out;
+    z-index: 100;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 200px;
+    justify-content: space-evenly;
+    /* border: 2px solid red; */
+  }
+  
+  .sidebar ul li {
+    padding: 15px;
+    text-align: left;
+  }
+  .sidebar ul li a:hover{
+    border: 2px solid blue;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: white;
+    color: blue;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .sidebar ul li a:hover {
+    /* background-color: #444; */
+  }
+  
+  /* Button to open sidebar (hamburger icon) */
+  .sidebar-toggle {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    display: none;
+  }
+  
+  /* Hide desktop navigation and show sidebar on mobile */
+  .desktop-nav {
+    display: none;
+  }
+  
+  /* Media query for mobile view */
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+  
+    .sidebar-toggle {
+      display: block;
+    }
+
+    nav h1 {
+     display: flex;
+     flex-direction: column-reverse; 
+     /* border: 2px solid red;   */
+     width: 100%;
+    }
+  }
+  
+  /* For larger screens, show the default horizontal nav */
+  @media (min-width: 769px) {
+    .sidebar {
+      display: none;
+    }
+  
+    .desktop-nav {
+      display: flex;
+      justify-content: space-around;
+    }
+  }

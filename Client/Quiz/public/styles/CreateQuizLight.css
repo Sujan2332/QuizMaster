@@ -1,0 +1,161 @@
+.createquiz {
+    color: black; /* Changed to black for light theme */
+    display: flex;
+    flex-direction: column;
+}
+
+.createquizmain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 10px;
+}
+
+.createquizform {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    border-radius: 30px;
+    text-align: center;
+    padding: 30px;
+    background: #f9f9f9; /* Light background */
+    background: linear-gradient(-285deg, #f9f9f9, #e6e6e6); /* Light gradient */
+    background: rgba(100, 167, 255, 0.434);
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    transition: all 0.3s ease-in-out;
+}
+
+.createquizform:hover {
+    border: 2px solid black;
+    background: linear-gradient(-285deg, #ffffff, #e6e6e6); 
+    /* margin-top: 40px; */
+    transform: scale(1.02) translateY(30px);
+    /* background: rgba(100, 167, 255, 0.434); */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle hover shadow */
+}
+
+.createquizform input, textarea {
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 2px solid #ccc; /* Light border */
+    border-radius: 15px;
+    color: black; /* Dark text */
+    font-weight: 500;
+    background: #fff; /* Light input background */
+}
+
+textarea {
+    width: 80vh;
+}
+
+.createform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.createform .question {
+    width: 80%;
+}
+
+.createquizform button {
+    background: blue; /* Light blue */
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 500;
+    width: auto;
+}
+
+.formbtns {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.formbtns button {
+    border-radius: 50px;
+    padding: 10px 15px;
+    border: 2px solid black; /* Dark border */
+}
+
+.selection {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    gap: 20px;
+    font-size: 18px;
+    padding-top: 0px;
+
+}
+.selection ul{
+    /* border: 2px solid red; */
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+}
+.selection ul li {
+    /* border: 2px solid red; */
+    padding: 5px 15px;
+    border-radius: 25px;
+    width: 100%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 900;
+    transition: 0.3s ease-in-out;
+}
+.selection ul li:hover{
+    background: rgba(155, 198, 255, 0.636);
+    transform: scale(1.05);
+    min-width: 350px;
+}
+
+.selection ul li button {
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: blue; /* Light blue */
+    font-weight: 800;
+    font-size: 15px;
+    border: 2px solid black; /* Dark border */
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+
+.selection ul li button:hover {
+    background: white; /* Light hover */
+    color: blue; /* Light blue text */
+    border: 2px solid blue;
+}
+
+.removebtn {
+    border: 2px solid black; /* Dark border */
+    border-radius: 25px;
+}
+
+button {
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    background: white;
+    color: blue; /* Light blue text */
+}
