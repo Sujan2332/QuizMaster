@@ -71,16 +71,6 @@ const QuizDetail = () => {
         }
     };
 
-    // Loading spinner component
-    if (loading) {
-        return (
-            <div className="spinner">
-                <div className="loading-spinner"></div>
-                Loading...
-            </div>
-        );
-    }
-
     if (!quiz) return <div>Quiz not found</div>;
 
     const question = quiz.questions[currentQuestionIndex];
@@ -88,6 +78,11 @@ const QuizDetail = () => {
     return (
         <div className='quizdetails'>
             <Navbar />
+            {loading && (
+                <div className="spinner">
+                <div className="loading-spinner"></div>
+            </div>
+            )}
             <div className='quizmain'>
             <div className='timer'>
                 <h2>{quiz.title} [<span style={{ fontSize: "20px", fontWeight: "200", textDecoration: "none" }}>{quiz.description}</span>]</h2>
