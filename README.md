@@ -1,4 +1,4 @@
-# *Quiz Master Web Application*
+# <p align="center"> *Quiz Master Web Application* </p>
 ## *Welcome to the Quiz Web App! A dynamic and interactive platform that allows users to take quizzes on various topics, track their performance, and view their rankings. With features for both regular users and admins, this app is designed to make quiz-taking fun and efficient!*
 
 ## *Preview*
