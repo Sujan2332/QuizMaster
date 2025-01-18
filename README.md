@@ -122,6 +122,68 @@ npm start
 
 *Your app should now be running at http://localhost:5173*
 
+## "File Structure"
+
+```
+Client
+├── Quiz
+│   ├── node_modules/
+│   ├── public
+│   │   ├── assets/
+│   │   ├── styles/
+│   ├── src
+│   │   ├── assets/
+│   │   │   └── react.svg
+│   │   ├── components/
+│   │   │   ├── CreateQuiz.jsx
+│   │   │   ├── DeleteQuiz.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── Leaderboard.jsx
+│   │   │   ├── Leaderboards.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── QuizDetail.jsx
+│   │   │   ├── QuizList.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── SubmitQuiz.jsx
+│   │   │   └── UpdateQuiz.jsx
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   ├── main.jsx
+│   ├── .env
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── README.md
+│   └── vite.config.js
+Server
+├── config/
+│   └── db.js
+├── controllers/
+│   ├── auth.controller.js
+│   ├── quiz.controller.js
+├── middlewares/
+│   └── authMiddleware.js
+├── models/
+│   ├── quiz.model.js
+│   ├── user.model.js
+├── node_modules/
+├── routes/
+│   ├── auth.routes.js
+│   ├── quiz.routes.js
+├── .env
+├── .gitignore
+├── index.js
+├── package-lock.json
+├── package.json
+└── README.md
+```
+
 ## *Usage*
 
 ### *Sign Up:* 
