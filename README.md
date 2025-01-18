@@ -122,7 +122,7 @@ npm start
 
 *Your app should now be running at http://localhost:5173*
 
-## "File Structure"
+## *File Structure*
 
 ```
 Client
