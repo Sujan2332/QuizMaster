@@ -8,29 +8,31 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
+// CORS Configuration
 const corsOptions = {
-  origin: ['https://quizmaster-oji8.onrender.com', 'http://localhost:5173'], // Add allowed origins here
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+  origin: 'https://quizmaster-oji8.onrender.com', // Frontend origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
 };
-
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Handle preflight requests globally
+app.options('*', cors(corsOptions)); // Handle preflight requests
 
+// Middleware
 app.use(express.json());
-
-// Serve static files (CSS, JS, images, etc.) from the "public" directory
-app.use(express.static(path.join(__dirname, 'public'), {
-  setHeaders: (res, filePath) => {
-    if (filePath.endsWith('.css')) {
-      res.set('Content-Type', 'text/css');
-    }
-  }
-}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/quiz', require('./routes/quiz.routes'));
 
+// Error Handling Middleware
+app.use((err, req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://quizmaster-oji8.onrender.com');
+  res.status(err.status || 500).json({ message: err.message || 'Internal Server Error' });
+});
+
+// Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on Port ${PORT}`));
