@@ -160,6 +160,7 @@ button:hover {
     color: blue; /* Light blue text */
 }
 
+
 @media (max-height:768px){
     textarea{
         width: auto;

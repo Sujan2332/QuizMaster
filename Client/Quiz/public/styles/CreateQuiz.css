@@ -157,6 +157,7 @@ button:hover{
     border:2px solid rgb(34, 0, 128);
 }
 
+
 @media (max-height:768px){
     textarea{
         width: auto;

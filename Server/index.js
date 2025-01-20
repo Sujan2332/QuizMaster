@@ -11,7 +11,7 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-  origin: 'https://quizmaster-oji8.onrender.com', // Frontend origin
+  origin: ['https://quizmaster-oji8.onrender.com','http://localhost:5173'], // Frontend origin
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
