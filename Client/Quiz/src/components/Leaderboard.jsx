@@ -214,7 +214,7 @@ const Leaderboard = () => {
                   <td>{entry.userId.name}</td>
                   <td>{entry.score}</td>
                   <td>
-                    {loggedInUser === entry.userId._id && ( // Show button only for logged-in user
+                    {loggedInUser === entry.userId._id ? ( // Show button only for logged-in user
                       <button
                         onClick={() => generateCertificate(entry.userId.name, entry.score)}
                         style={{
@@ -228,6 +228,8 @@ const Leaderboard = () => {
                       >
                         Download
                       </button>
+                    ):(
+                      <span>-</span>
                     )}
                   </td>
                 </tr>
