@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
     isAdmin: { type: Boolean, default: false },
     token: { type: String, required: false },
     resetToken: { type: String, required: false }, // Add this field
-},{collection:"quizUsers"});
+},{collection:"quizusers"});
 
 UserSchema.pre('save', async function (next) {
     if (!this.isModified("password")) return next();
