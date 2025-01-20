@@ -127,17 +127,35 @@ exports.submitQuiz = async (req, res) => {
     }
 };
 
-exports.getLeaderboard = async(req,res)=>{
-    const {id} = req.params
+exports.getLeaderboard = async (req, res) => {
+    const { id } = req.params;
 
-    try{
-        const quiz = await Quiz.findById(id).populate("leaderboard.userId","name score")
-    if(!quiz){
-        return res.status(404).json({message:"Quiz Not Found"})
-    }  
-    const leaderboard = quiz.leaderboard.sort((a,b)=>b.score - a.score) 
-    res.status(200).json({leaderboard}) 
-    } catch(error){
-        res.status(500).json({message:"Error Fetching Leaderborad",details:error.message})
+    try {
+        // Fetch the quiz with leaderboard and other details
+        const quiz = await Quiz.findById(id)
+            .populate("leaderboard.userId", "name")
+            .select("title timeLimit questions leaderboard");
+
+        if (!quiz) {
+            return res.status(404).json({ message: "Quiz Not Found" });
+        }
+
+        // Sort the leaderboard by score in descending order
+        const leaderboard = quiz.leaderboard.sort((a, b) => b.score - a.score);
+
+        // Prepare the response with quiz details
+        const response = {
+            title: quiz.title,
+            timeLimit: quiz.timeLimit,
+            numberOfQuestions: quiz.questions.length,
+            leaderboard
+        };
+
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({
+            message: "Error Fetching Leaderboard",
+            details: error.message
+        });
     }
-} 
+};
