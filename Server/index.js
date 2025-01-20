@@ -8,7 +8,15 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: ['https://quizmaster-oji8.onrender.com', 'http://localhost:5173'], // Add allowed origins here
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Handle preflight requests globally
+
 app.use(express.json());
 
 // Serve static files (CSS, JS, images, etc.) from the "public" directory
