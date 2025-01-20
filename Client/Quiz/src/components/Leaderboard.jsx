@@ -51,7 +51,10 @@ const Leaderboard = () => {
     return "Perfect! You've aced it!";
   };
   
-  const generateCertificate = (name, score) => {
+  const generateCertificate = async (name, score) => {
+    setLoading(true);
+    try{
+    // Simulate any asynchronous operations (if applicable)
     const { title, timeLimit, numberOfQuestions } = quizDetails;
     const percentage = (score / numberOfQuestions) * 100; // Calculate the percentage
     const remarks = calculateRemarks(percentage); // Get remarks based on the percentage
@@ -76,7 +79,7 @@ const Leaderboard = () => {
     // Add badge/image to the top-right corner (adjust size and position as needed)
     const imageXRight = 210; // X position for top-right corner
     doc.addImage(badge1, 'PNG', imageXRight, imageYTop, imageWidth, imageHeight);
-
+  
     const imageXBottom = 30; // X position for bottom-left corner
     const imageYBottom = 130; // Y position for bottom-left corner (near the bottom of the page)
     const imageWidthBottom = 60; // Image width
@@ -179,7 +182,15 @@ const Leaderboard = () => {
   
     // Download the PDF
     doc.save(`${capitalizedName}_Certificate.pdf`);
-  };
+    }
+    catch (error){
+      console.error(error.message)
+    }
+    finally{
+    setLoading(false);
+    }
+    // After the process is done, set loading to false
+  };  
   
 
   if (error) {
@@ -226,7 +237,7 @@ const Leaderboard = () => {
                           borderRadius: '5px'
                         }}
                       >
-                        Download
+                        {loading ? ("Downloading..."):("Download")}
                       </button>
                     ):(
                       <span>-</span>
