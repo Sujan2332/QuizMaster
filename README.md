@@ -1,82 +1,83 @@
-# *Quiz Master Web Application*
-## *Welcome to the Quiz Web App! A dynamic and interactive platform that allows users to take quizzes on various topics, track their performance, and view their rankings. With features for both regular users and admins, this app is designed to make quiz-taking fun and efficient!*
+# <p align="center"> *Quiz Master Web Application 👑* </p>
 
-## *Preview*
+## *Welcome to the Quiz Web App! A dynamic and interactive platform that allows users to take quizzes on various topics, track their performance, and view their rankings. With features for both regular users and admins, this app is designed to make quiz-taking fun and efficient!* 🎮
+
+## *Preview 📺*
 ## *[Click Here to take up the Quiz!!!](https://quizmaster-oji8.onrender.com/)*
 
-## *Description*
-### *This web-based application allows users to take quizzes on a variety of topics in a smooth and interactive environment. The app includes features for quiz-taking, tracking scores, reviewing answers, and providing detailed analytics. Admins can manage quizzes, update questions, and view performance statistics through the admin portal.*
+## *Description 💬*
+### *This web-based application allows users to take quizzes on a variety of topics in a smooth and interactive environment. The app includes features for quiz-taking, tracking scores, reviewing answers, and providing detailed analytics. Admins can manage quizzes, update questions, and view performance statistics through the admin portal.* 🖥️
 
-## *Core Features*
+## *Core Features 🔥*
 
-### *1. User Authentication*
+### *1. User Authentication 👤*
 
 *Sign Up/Log In: Users can easily create an account using their email and password, or log in to access their quiz history.*
 
-*Password Reset: Forgot your password? Users can reset their password through email.*
+*Password Reset: Forgot your password? Users can reset their password through email.* 🔑
 
-### *2. Quiz Management*
+### *2. Quiz Management 📝*
 
 *Available Quizzes: A categorized list of quizzes by topic is available for users to choose from.*
 
-*Multiple-Choice Questions (MCQs): All quizzes consist of multiple-choice questions.*
+*Multiple-Choice Questions (MCQs): All quizzes consist of multiple-choice questions.* ✅
 
-*Time Limit: Each quiz has a predefined time limit to increase challenge and excitement.*
+*Time Limit: Each quiz has a predefined time limit to increase challenge and excitement.* ⏳
 
-### *3. Taking the Quiz*
+### *3. Taking the Quiz 🧠*
 
 *One Question at a Time: As users start a quiz, they will see one question at a time to keep focus.*
 
-*Navigation Between Questions: Users can navigate between questions freely.*
+*Navigation Between Questions: Users can navigate between questions freely.* 🔄
 
-*Timer: A visible timer ensures that the user is aware of their time remaining during the quiz.*
+*Timer: A visible timer ensures that the user is aware of their time remaining during the quiz.* ⏰
 
-### *4. Scoring and Results*
+### *4. Scoring and Results 📊*
 
 *Final Score: Once the quiz is completed, users will instantly see their score.*
 
-*Feedback: After the quiz ends, users can see whether their answers were correct or incorrect.*
+*Feedback: After the quiz ends, users can see whether their answers were correct or incorrect.* ✅❌
 
-*Review Answers: Users have the option to review all the answers after completing the quiz.*
+*Review Answers: Users have the option to review all the answers after completing the quiz.* 📚
 
-### *5. Admin Portal*
+### *5. Admin Portal 🛠️*
 
 *Admin Login: Admins can log in using special credentials.*
 
 *Quiz Management: Admins have full CRUD (Create, Read, Update, Delete) functionality for managing quizzes.*
 
-*Bulk Upload: Admins can upload quizzes via CSV or JSON file formats.*
+*Bulk Upload: Admins can upload quizzes via CSV or JSON file formats.* 📥
 
-### *6. Leaderboard*
+### *6. Leaderboard 🏆*
 
-*Top Scores: The leaderboard displays top scores for each quiz, showing the best-performing users.*
+*Top Scores: The leaderboard displays top scores for each quiz, showing the best-performing users.* 🥇
 
-### *7. Responsive Design*
+### *7. Responsive Design 📱*
 
-*Mobile-Friendly: The app is fully responsive, ensuring that it works seamlessly across mobile, tablet, and desktop devices.*
+*Mobile-Friendly: The app is fully responsive, ensuring that it works seamlessly across mobile, tablet, and desktop devices.* 💻📱
 
-### *8. Themes*
+### *8. Themes 🎨*
 
-*Users can switch between light and dark themes for a customized experience.*
+*Users can switch between light and dark themes for a customized experience.* 🌞🌙
 
-## *Tech Stack*
+## *Tech Stack 🛠️*
 
 ### *Frontend:*
-*React.js (for building dynamic user interfaces)*
+*React.js (for building dynamic user interfaces)* ⚛️
 
 ### *Backend:* 
-*Node.js with Express.js (for handling server-side logic)*
+*Node.js with Express.js (for handling server-side logic)* 🚀
 
 ### *Database:* 
-*MongoDB (for storing quiz data, user information, and quiz results)*
+*MongoDB (for storing quiz data, user information, and quiz results)* 🗃️
 
 ### *Authentication:* 
-*JWT (for secure user authentication)*
+*JWT (for secure user authentication)* 🔒
 
 ### *Hosting:* 
-*Render (for deploying the web app)*
+*Render (for deploying the web app)* 🌐
 
-## *Installation*
+## *Installation ⚡*
 
 *To run the app locally:*
 
@@ -121,6 +122,68 @@ npm start
 
 *Your app should now be running at http://localhost:5173*
 
+## *File Structure 📂*
+
+```
+Client
+├── Quiz
+│   ├── node_modules/
+│   ├── public
+│   │   ├── assets/
+│   │   ├── styles/
+│   ├── src
+│   │   ├── assets/
+│   │   │   └── react.svg
+│   │   ├── components/
+│   │   │   ├── CreateQuiz.jsx
+│   │   │   ├── DeleteQuiz.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── Leaderboard.jsx
+│   │   │   ├── Leaderboards.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── QuizDetail.jsx
+│   │   │   ├── QuizList.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── SubmitQuiz.jsx
+│   │   │   └── UpdateQuiz.jsx
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   ├── main.jsx
+│   ├── .env
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── README.md
+│   └── vite.config.js
+Server
+├── config/
+│   └── db.js
+├── controllers/
+│   ├── auth.controller.js
+│   ├── quiz.controller.js
+├── middlewares/
+│   └── authMiddleware.js
+├── models/
+│   ├── quiz.model.js
+│   ├── user.model.js
+├── node_modules/
+├── routes/
+│   ├── auth.routes.js
+│   ├── quiz.routes.js
+├── .env
+├── .gitignore
+├── index.js
+├── package-lock.json
+├── package.json
+└── README.md
+```
+
 ## *Usage*
 
 ### *Sign Up:* 
@@ -138,7 +201,7 @@ npm start
 ### *Admin Actions:* 
 *Admins can log in to manage quizzes, upload questions, and view leaderboards.*
 
-## *Contributing*
+## *Contributing 🤝*
 ### *I welcome contributions! If you’d like to contribute, please follow these steps:*
 
 ## *Fork the repository.*
