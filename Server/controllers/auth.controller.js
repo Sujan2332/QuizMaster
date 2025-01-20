@@ -95,7 +95,7 @@ const sendResetEmail = async (email, resetToken) => {
         subject: "Password Reset Request",
         html: `
             <div style="
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: linear-gradient(135deg, #f3f4f7, #e6e9f0);
     background: black;
     color: #333;
