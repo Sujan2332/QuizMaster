@@ -11,6 +11,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [isMobile, setIsMobile] = useState(false);
   const [loading, setLoading] = useState(false); // Add loading state
+  const [showPassword, setShowPassword] = useState(false); // Toggle password visibility
 
   useEffect(() => {
     // Check if the screen size matches mobile view
@@ -63,25 +64,34 @@ const Register = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit" disabled={loading}>Register</button>
-                  {/* Show loading spinner if the loading state is true */}
-      {loading && (
-        <div className="spinner">
-          <div className="loading-spinner"></div>
-          <h6>Registering, please wait...</h6>
-        </div>
-      )}
-            <h4
-              onClick={() => navigate('/login')}
-              className="navreg"
-            >
+            <div className="password-container newpassword">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <span
+              style={{top:"45%"}}
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="toggle-password"
+              >
+                {showPassword ? <i class="fa-solid fa-eye-slash"></i> :<i class="fa-solid fa-eye"></i>}
+              </span>
+            </div>
+            <button type="submit" disabled={loading}>
+              Register
+            </button>
+            {/* Show loading spinner if the loading state is true */}
+            {loading && (
+              <div className="spinner">
+                <div className="loading-spinner"></div>
+                <h6>Registering, please wait...</h6>
+              </div>
+            )}
+            <h4 onClick={() => navigate('/login')} className="navreg">
               Already a User? Login
             </h4>
           </form>
@@ -93,7 +103,6 @@ const Register = () => {
           </div>
         )}
       </div>
-
     </div>
   );
 };

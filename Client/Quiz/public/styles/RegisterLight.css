@@ -168,6 +168,93 @@
     color: red;
   }
   
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: black;
+    /* border: 2px solid white; */
+    /* box-shadow: 2px 2px 2px 2px white; */
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    color: black;
+    background: linear-gradient(-285deg, #ffffff, #e6e6e6); /* Subtle gradient */
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+    background: linear-gradient(180deg, white, #EBEBEB); /* Subtle gradient */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  .modal-content:hover{
+    border: 2px solid #333;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transform: scale(1.05)  translateX(-10px) translateY(-10px);
+  }
+  .modal-content h3 {
+    margin-bottom: 15px;
+  }
+  
+  .modal-content p {
+    margin-bottom: 15px;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    border-radius: 15px;
+    text-align: center;
+    background: linear-gradient(-285deg, #ffffff, #e6e6e6); /* Subtle gradient */
+    color: white;
+    font-weight: 700;
+  border: 1px solid #555; /* Slight border for inputs and buttons */
+  background: linear-gradient(-285deg, #ffffff, #e6e6e6); /* Subtle gradient */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .modal-content button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    background: blue; /* Dark purple background for button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 35px;
+    font-weight: 700;
+  }
+  
+  .modal-content button:hover {
+    background-color: #0056b3;
+    background:white ; /* Lighter purple on hover */
+    color: blue;
+    border: 2px solid blue;
+  }
+  
+  .close-modal {
+    background-color: #dc3545;
+    margin-top: 15px;
+  }
+  
+  .close-modal:hover {
+    background-color: #a71d2a;
+  }
+
   /* Responsive Adjustments for Mobile Devices */
   @media (max-width: 768px) {
   .custom-alert {
@@ -180,6 +267,10 @@
   }
   .registercontainer {
     width: 100%;
+  }
+  .modal-content:hover{
+    border: 2px solid white;
+    transform: scale(1.05);;
   }
   }
   

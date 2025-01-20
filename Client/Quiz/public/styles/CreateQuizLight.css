@@ -159,3 +159,18 @@ button:hover {
     background: white;
     color: blue; /* Light blue text */
 }
+
+@media (max-height:768px){
+    textarea{
+        width: auto;
+    }
+    .createquizform{
+        width: 90%;
+    }
+    .createquizform button{
+        font-size: 15px;
+    }
+    .createform .question{
+        width: 100%;
+    }
+}

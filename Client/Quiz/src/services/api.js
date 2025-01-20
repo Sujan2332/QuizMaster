@@ -35,6 +35,48 @@ export const loginUser = async (credentials)=>{
     }
 }
 
+export const forgotPassword = async (email) => {
+    try {
+        const response = await api.post('/auth/forgot-password', { email });
+        return response.data; // Return the success message
+    } catch (error) {
+        // Handle errors gracefully
+        if (error.response) {
+            throw new Error(error.response.data.message || "Something went wrong!");
+        } else if (error.request) {
+            throw new Error("No response received from the server.");
+        } else {
+            throw new Error(error.message);
+        }
+    }
+};
+
+export const updatePassword = async (resetToken, newPassword) => {
+    try {
+        // Log the data being sent to the server
+        console.log("Data being sent to the server:", { resetToken, newPassword });
+
+        const response = await api.post('/auth/update-password', { resetToken, newPassword });
+
+        // Log the server response
+        console.log("Server response:", response.data);
+
+        return response.data; // Return the success message
+    } catch (error) {
+        // Log the error details
+        if (error.response) {
+            console.error("Server responded with an error:", error.response.data);
+            throw new Error(error.response.data.message || "Something went wrong!");
+        } else if (error.request) {
+            console.error("No response received from the server:", error.request);
+            throw new Error("No response received from the server.");
+        } else {
+            console.error("Error occurred while making the request:", error.message);
+            throw new Error(error.message);
+        }
+    }
+};
+
 export const getQuizzes = async ()=>{
     try{
         const token = localStorage.getItem("token")

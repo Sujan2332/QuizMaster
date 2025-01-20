@@ -11,14 +11,17 @@ import UpdateQuiz from "./components/UpdateQuiz";
 import DeleteQuiz from "./components/DeleteQuiz";
 import Navbar from "./components/Navbar";
 import Leaderboards from "./components/Leaderboards";
-import "./App.css"
+import ResetPassword from "./components/ResetPassword"; // Import ResetPassword component
+import "./App.css";
 
 // CustomAlert Component
 export const CustomAlert = ({ message, onClose }) => {
   return (
     <div className="custom-alert">
       <p>{message}</p>
-      <button onClick={onClose}><i className="fa-solid fa-circle-xmark"></i></button>
+      <button onClick={onClose}>
+        <i className="fa-solid fa-circle-xmark"></i>
+      </button>
     </div>
   );
 };
@@ -27,48 +30,46 @@ const App = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(() => {
-    // Initialize theme from localStorage
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme === "dark";
   });
 
   // Handle theme changes
   useEffect(() => {
-    // Apply the loading class immediately to prevent flicker of theme
-    document.body.classList.add('loading');
-    
+    document.body.classList.add("loading");
+
     const loadStyles = (theme) => {
       const head = document.head;
 
-      // Remove any previous theme-related stylesheets
       Array.from(document.querySelectorAll("link[data-theme]")).forEach((link) =>
         head.removeChild(link)
       );
-      
-      // Choose the appropriate stylesheets for dark or light theme
-      const stylesheets = theme === 'dark'
-        ? [
-            "/styles/Register.css",
-            "/styles/QuizList.css",
-            "/styles/QuizDetails.css",
-            "/styles/navbar.css",
-            "/styles/Leaderboard.css",
-            "/styles/DeleteQuiz.css",
-            "/styles/CreateQuiz.css",
-            "/styles/Home.css"
-          ]
-        : [
-            "/styles/RegisterLight.css",
-            "/styles/QuizListLight.css",
-            "/styles/QuizDetailsLight.css",
-            "/styles/navbarLight.css",
-            "/styles/LeaderboardLight.css",
-            "/styles/DeleteQuizLight.css",
-            "/styles/CreateQuizLight.css",
-            "/styles/HomeLight.css"
-          ];
-      
-      // Dynamically load the stylesheets
+
+      const stylesheets =
+        theme === "dark"
+          ? [
+              "/styles/Register.css",
+              "/styles/QuizList.css",
+              "/styles/QuizDetails.css",
+              "/styles/navbar.css",
+              "/styles/Leaderboard.css",
+              "/styles/DeleteQuiz.css",
+              "/styles/CreateQuiz.css",
+              "/styles/Home.css",
+              "/styles/ResetPassword.css"
+            ]
+          : [
+              "/styles/RegisterLight.css",
+              "/styles/QuizListLight.css",
+              "/styles/QuizDetailsLight.css",
+              "/styles/navbarLight.css",
+              "/styles/LeaderboardLight.css",
+              "/styles/DeleteQuizLight.css",
+              "/styles/CreateQuizLight.css",
+              "/styles/HomeLight.css",
+              "/styles/ResetPasswordLight.css"
+            ];
+
       stylesheets.forEach((href) => {
         const link = document.createElement("link");
         link.rel = "stylesheet";
@@ -78,14 +79,14 @@ const App = () => {
       });
     };
 
-    const theme = isDarkTheme ? 'dark' : 'light';
+    const theme = isDarkTheme ? "dark" : "light";
     loadStyles(theme);
-    
-    localStorage.setItem('theme', theme);
+
+    localStorage.setItem("theme", theme);
 
     const timer = setTimeout(() => {
-      document.body.classList.remove('loading');
-    }, 500); // Same time as the transition duration
+      document.body.classList.remove("loading");
+    }, 500);
 
     return () => {
       clearTimeout(timer);
@@ -95,20 +96,18 @@ const App = () => {
     };
   }, [isDarkTheme]);
 
-  // Toggle theme
   const toggleTheme = () => {
     setIsDarkTheme((prevTheme) => !prevTheme);
   };
 
   useEffect(() => {
-    // Override the default alert globally
     window.alert = (message) => {
       setAlertMessage(message);
       setShowAlert(true);
 
       setTimeout(() => {
         setShowAlert(false);
-        setAlertMessage(""); // Clear message for next alerts
+        setAlertMessage("");
       }, 5000);
     };
   }, []);
@@ -118,7 +117,6 @@ const App = () => {
     setAlertMessage("");
   };
 
-  // Extract user and isAdmin from localStorage
   const user = JSON.parse(localStorage.getItem("user"));
   const isAdmin = user?.isAdmin;
 
@@ -127,7 +125,11 @@ const App = () => {
       <div className="loading"></div>
       <span className={isDarkTheme ? "dark-theme" : "light-theme"}>
         <button onClick={toggleTheme} className="theme-toggle-btn">
-          {isDarkTheme ? <i className="fa-solid fa-moon"></i> : <i className="fa-solid fa-sun"></i>}
+          {isDarkTheme ? (
+            <i className="fa-solid fa-moon"></i>
+          ) : (
+            <i className="fa-solid fa-sun"></i>
+          )}
         </button>
       </span>
       <Router>
@@ -142,6 +144,9 @@ const App = () => {
             <Route path="/quiz/:id" element={<QuizDetail />} />
             <Route path="/quiz/:quizId/leaderboard" element={<Leaderboard />} />
             <Route path="/leaderboards" element={<Leaderboards />} />
+
+            {/* Reset Password Route */}
+            <Route path="/reset-password" element={<ResetPassword />} />
 
             {/* Admin-only routes */}
             {isAdmin && (
